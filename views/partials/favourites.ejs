@@ -1,0 +1,8 @@
+<form action="/favourites" method="post" class="w-full">
+	<button
+		class="w-full rounded-xl border border-[#E43D12]/30 bg-orange-50 px-4 py-2.5 text-sm font-semibold text-[#E43D12] transition hover:bg-[#E43D12] hover:text-white cursor-pointer"
+		type="submit">
+		Add to favourites
+	</button>
+	<input type="hidden" name="homeId" value="<%= home._id %>" />
+</form>

@@ -1,0 +1,53 @@
+<%- include('../partials/head')%>
+</head>
+<body class="min-h-screen bg-[#f5f1ea] text-slate-800">
+    <%- include('../partials/nav')%>
+    <main class="mx-auto w-full max-w-3xl px-4 py-10 sm:px-8 sm:py-14">
+            <div class="rounded-3xl border border-slate-200 bg-white/90 px-5 py-8 shadow-xl shadow-slate-900/10 sm:px-10 sm:py-10">
+                <div class="mb-8">
+                    <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#E43D12]">Host dashboard</p>
+                    <h1 class="text-3xl font-semibold tracking-tight text-slate-900"><%= editing ? 'Edit' : 'Register' %> your home here</h1>
+                    <p class="mt-2 text-sm text-slate-500">Add the details guests need to choose your space.</p>
+                </div>
+                <div class="w-full">
+                    <form action="/host/<%= editing ? 'edit-homes/' + home._id : 'add-home'%>" method="post" class="space-y-5">
+                        <div class="w-full">
+                            <!-- <input type="hidden" name="id" value="<%= editing ? home._id : '' %>"> -->
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="houseName">House Name</label>
+                                <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="houseName" id="houseName" value="<%= editing ? home.houseName : '' %>">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="price">Price</label>
+                                <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="price" id="price" value="<%= editing ? home.price : '' %>">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="location">Location</label>
+                                <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="location" id="location" value="<%= editing ? home.location : '' %>">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="rating">Rating</label>
+                                <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="rating" id="rating" value="<%= editing ? home.rating : '' %>">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="photourl">Photo URL</label>
+                                <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="photourl" id="photourl" value="<%= editing ? home.photourl : '' %>">
+                            </div>
+                            <div>
+                                <label class="mb-2 block text-sm font-medium text-slate-700" for="description">Description</label>
+                                <textarea class="min-h-32 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" type="text" name="description" id="description" placeholder="Write your description!" ><%= editing ? home.description : '' %></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="w-full rounded-xl bg-[#E43D12] px-5 py-3.5 font-semibold text-white shadow-lg shadow-[#E43D12]/20 transition hover:bg-[#c9350f] focus:outline-none focus:ring-4 focus:ring-[#E43D12]/20 cursor-pointer" type="submit" value="submit"><%= editing ? 'Update' : 'Register' %></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+        
+
+
+</body>
+</html>

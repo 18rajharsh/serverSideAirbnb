@@ -1,0 +1,73 @@
+<%- include('../partials/head')%>
+    </head>
+
+    <body class="bg-[#f5f1ea] text-slate-800 min-h-screen flex flex-col overflow-x-hidden">
+        <%- include('../partials/nav')%>
+            <main class="flex-1 min-h-0 overflow-y-auto px-4 py-10 sm:py-14">
+                <div class="w-full flex justify-center">
+                    <div class="w-full max-w-xl rounded-3xl border border-slate-200 bg-white/90 px-5 py-8 shadow-xl shadow-slate-900/10 sm:px-10 sm:py-10">
+                        <div class="mb-8">
+                            <p class="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#E43D12]">Create your account</p>
+                            <h1 class="text-3xl font-semibold tracking-tight text-slate-900">Register as a new User</h1>
+                            <p class="mt-2 text-sm text-slate-500">Join the community and find a place that feels like home.</p>
+                        </div>
+                        <div class="w-full">
+                           <%- include('../partials/error')%>
+                            <form action="/signup" method="post" class="w-full">
+                                <div class="w-full">
+                                    <div class="mb-4 w-full">
+                                        <label for="firstName" class="mb-2 block text-sm font-medium text-slate-700">First name</label>
+                                        <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder-slate-400 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10"
+                                            type="text" name="firstName" id="firstName" value="<%= oldInput.firstName ? oldInput.firstName : '' %>" placeholder="First Name" required />
+                                    </div>
+                                    <div class="mb-4 w-full">
+                                        <label for="lastName" class="mb-2 block text-sm font-medium text-slate-700">Last name</label>
+                                        <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder-slate-400 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10"
+                                            type="text" name="lastName" id="lastName" value="<%= oldInput.lastName ? oldInput.lastName : '' %>" placeholder="Last Name" />
+                                    </div>
+                                    <div class="mb-4 w-full">
+                                        <label for="email" class="mb-2 block text-sm font-medium text-slate-700">Email address</label>
+                                        <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder-slate-400 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10"
+                                            type="email" name="email" id="email" value="<%= oldInput.email ? oldInput.email : '' %>" placeholder="test@email.com" oninput="this.value = this.value.toLowerCase()" required />
+                                    </div>
+                                    <div class="mb-4 w-full">
+                                        <label for="password" class="mb-2 block text-sm font-medium text-slate-700">Password</label>
+                                        <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder-slate-400 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10"
+                                            type="password" name="password" id="password" placeholder="password" required />
+                                    </div>
+                                    <div class="mb-6 w-full">
+                                        <label for="confirmPassword" class="mb-2 block text-sm font-medium text-slate-700">Confirm password</label>
+                                        <input class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 placeholder-slate-400 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10"
+                                            type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required />
+                                    </div>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="userMode" class="mb-2 block text-sm font-medium text-slate-700">User mode</label>
+                                    <div class="w-full">
+                                        <select name="userMode" id="userMode" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-800 outline-none transition focus:border-[#E43D12] focus:ring-4 focus:ring-[#E43D12]/10" >
+                                            <option value="Guest" <%= oldInput.userMode === 'Guest' ? 'selected' : '' %>>Guest</option>
+                                            <option value="Admin" <%= oldInput.userMode === 'Admin' ? 'selected' : '' %>>Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-6 flex items-start gap-3 text-sm text-slate-600">
+                                    <input class="mt-0.5 h-4 w-4 accent-[#E43D12]" type="checkbox" name="terms" id="terms" required />
+                                    <label for="terms">I agree to the terms and conditions</label>
+                                </div>
+                                <div>
+                                    <button
+                                        class="w-full rounded-xl bg-[#E43D12] px-5 py-3.5 font-semibold text-white shadow-lg shadow-[#E43D12]/20 transition hover:bg-[#c9350f] focus:outline-none focus:ring-4 focus:ring-[#E43D12]/20 cursor-pointer"
+                                        type="submit" value="Register">Signup</button>
+                                </div>
+
+                                <div class="mt-6">
+                                    <p class="text-center text-sm text-slate-500">Already have an account? <a href="/login"
+                                            class="font-semibold text-[#E43D12] hover:underline">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </body>
+</html>
